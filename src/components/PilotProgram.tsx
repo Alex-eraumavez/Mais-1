@@ -1,18 +1,16 @@
 import { CheckCircle2, AlertTriangle, Send } from 'lucide-react';
 import React, { useState } from 'react';
-import { useTranslation } from 'react-i18next';
+
+const areasOfInterest = [
+  { id: 'tiler', name: 'Tiler' },
+  { id: 'carpenter', name: 'Carpenter' },
+  { id: 'drywall', name: 'Drywall Installer' },
+  { id: 'plaster', name: 'Plaster/Microcement Specialist' },
+];
 
 export default function PilotProgram() {
-  const { t } = useTranslation();
   const [selectedAreas, setSelectedAreas] = useState<string[]>([]);
   const [isSubmitted, setIsSubmitted] = useState(false);
-
-  const areasOfInterest = [
-    { id: 'tiler', name: t('pilot.form.areasList.tiler') },
-    { id: 'carpenter', name: t('pilot.form.areasList.carpenter') },
-    { id: 'drywall', name: t('pilot.form.areasList.drywall') },
-    { id: 'plaster', name: t('pilot.form.areasList.plaster') },
-  ];
 
   const handleAreaToggle = (areaId: string) => {
     setSelectedAreas(prev => {
@@ -48,7 +46,7 @@ export default function PilotProgram() {
       }, 4000);
     } catch (error) {
       console.error('Error submitting form:', error);
-      alert(t('contact.form.error') || 'There was an error submitting the form. Please try again.');
+      alert('There was an error submitting the form. Please try again.');
     }
   };
 
@@ -64,33 +62,33 @@ export default function PilotProgram() {
           <div>
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/10 border border-black/20 text-black text-xs font-black tracking-widest uppercase mb-6">
               <span className="w-2 h-2 rounded-full bg-red-600 animate-pulse"></span>
-              {t('pilot.badge')}
+              Limited Opportunity
             </div>
             
             <h2 className="text-4xl md:text-6xl font-black text-black mb-6 tracking-tight uppercase leading-none">
-              {t('pilot.title')} <br />
-              <span className="text-white drop-shadow-md">{t('pilot.titleAccent')}</span>
+              Join the Real Builder <br />
+              <span className="text-white drop-shadow-md">Pilot Program</span>
             </h2>
             
             <p className="text-black/80 text-xl font-bold mb-8 max-w-lg">
-              {t('pilot.subtitle')}
+              We are selecting 3 candidates to get: free training and a job contract.
             </p>
 
             <ul className="space-y-4 mb-10">
               <li className="flex items-start gap-3 text-black font-semibold text-lg">
                 <CheckCircle2 className="text-black shrink-0 mt-0.5" />
-                {t('pilot.benefit1')}
+                Become the first Certified Real Builder
               </li>
               <li className="flex items-start gap-3 text-black font-semibold text-lg">
                 <CheckCircle2 className="text-black shrink-0 mt-0.5" />
-                {t('pilot.benefit2')}
+                Be a part of the next generation of construction professionals
               </li>
             </ul>
 
             <div className="bg-black/10 border-l-4 border-black p-4 rounded-r-xl inline-flex items-start gap-3">
               <AlertTriangle className="text-black shrink-0" />
               <p className="text-black font-bold text-sm">
-                {t('pilot.important')}
+                Important: The work is intensive (10 hours/day). We are looking for dedicated professionals ready to commit.
               </p>
             </div>
           </div>
@@ -100,62 +98,62 @@ export default function PilotProgram() {
             {!isSubmitted ? (
               <>
                 <h3 className="text-2xl font-black text-white mb-6 tracking-tight uppercase">
-                  {t('pilot.form.title')}
+                  Apply Now
                 </h3>
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-gray-500 text-[10px] font-bold tracking-widest uppercase mb-1">{t('pilot.form.firstName')}</label>
+                      <label className="block text-gray-500 text-[10px] font-bold tracking-widest uppercase mb-1">First Name</label>
                       <input type="text" name="firstName" required className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#FFB800] transition-colors text-sm" placeholder="John" />
                     </div>
                     <div>
-                      <label className="block text-gray-500 text-[10px] font-bold tracking-widest uppercase mb-1">{t('pilot.form.lastName')}</label>
+                      <label className="block text-gray-500 text-[10px] font-bold tracking-widest uppercase mb-1">Last Name</label>
                       <input type="text" name="lastName" required className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#FFB800] transition-colors text-sm" placeholder="Doe" />
                     </div>
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-gray-500 text-[10px] font-bold tracking-widest uppercase mb-1">{t('pilot.form.phone')}</label>
+                      <label className="block text-gray-500 text-[10px] font-bold tracking-widest uppercase mb-1">Phone Number</label>
                       <input type="tel" name="phone" required className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#FFB800] transition-colors text-sm" placeholder="+351 900 000 000" />
                     </div>
                     <div>
-                      <label className="block text-gray-500 text-[10px] font-bold tracking-widest uppercase mb-1">{t('pilot.form.email')}</label>
+                      <label className="block text-gray-500 text-[10px] font-bold tracking-widest uppercase mb-1">Email</label>
                       <input type="email" name="email" required className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#FFB800] transition-colors text-sm" placeholder="john@example.com" />
                     </div>
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-gray-500 text-[10px] font-bold tracking-widest uppercase mb-1">{t('pilot.form.city')}</label>
+                      <label className="block text-gray-500 text-[10px] font-bold tracking-widest uppercase mb-1">City</label>
                       <input type="text" name="city" required className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#FFB800] transition-colors text-sm" placeholder="Lisbon" />
                     </div>
                     <div>
-                      <label className="block text-gray-500 text-[10px] font-bold tracking-widest uppercase mb-1">{t('pilot.form.experience')}</label>
+                      <label className="block text-gray-500 text-[10px] font-bold tracking-widest uppercase mb-1">Years of Experience</label>
                       <input type="number" name="experience" min="0" required className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#FFB800] transition-colors text-sm" placeholder="e.g. 3" />
                     </div>
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-gray-500 text-[10px] font-bold tracking-widest uppercase mb-2">{t('pilot.form.tavira')}</label>
+                      <label className="block text-gray-500 text-[10px] font-bold tracking-widest uppercase mb-2">Available to work in Tavira?</label>
                       <div className="flex gap-4">
                         <label className="flex items-center gap-2 text-white text-sm cursor-pointer">
-                          <input type="radio" name="tavira" value="yes" required className="accent-[#FFB800]" /> {t('pilot.form.yes')}
+                          <input type="radio" name="tavira" value="yes" required className="accent-[#FFB800]" /> Yes
                         </label>
                         <label className="flex items-center gap-2 text-white text-sm cursor-pointer">
-                          <input type="radio" name="tavira" value="no" required className="accent-[#FFB800]" /> {t('pilot.form.no')}
+                          <input type="radio" name="tavira" value="no" required className="accent-[#FFB800]" /> No
                         </label>
                       </div>
                     </div>
                     <div>
-                      <label className="block text-gray-500 text-[10px] font-bold tracking-widest uppercase mb-2">{t('pilot.form.immediate')}</label>
+                      <label className="block text-gray-500 text-[10px] font-bold tracking-widest uppercase mb-2">Available to start immediately?</label>
                       <div className="flex gap-4">
                         <label className="flex items-center gap-2 text-white text-sm cursor-pointer">
-                          <input type="radio" name="immediate" value="yes" required className="accent-[#FFB800]" /> {t('pilot.form.yes')}
+                          <input type="radio" name="immediate" value="yes" required className="accent-[#FFB800]" /> Yes
                         </label>
                         <label className="flex items-center gap-2 text-white text-sm cursor-pointer">
-                          <input type="radio" name="immediate" value="no" required className="accent-[#FFB800]" /> {t('pilot.form.no')}
+                          <input type="radio" name="immediate" value="no" required className="accent-[#FFB800]" /> No
                         </label>
                       </div>
                     </div>
@@ -163,7 +161,7 @@ export default function PilotProgram() {
 
                   <div>
                     <label className="block text-gray-500 text-[10px] font-bold tracking-widest uppercase mb-2">
-                      {t('pilot.form.areas')}
+                      Areas of Interest (Select up to 2)
                     </label>
                     <div className="flex flex-wrap gap-2">
                       {areasOfInterest.map(area => {
@@ -195,7 +193,7 @@ export default function PilotProgram() {
                     type="submit"
                     className="w-full bg-[#FFB800] text-black font-black py-4 rounded-xl tracking-widest hover:bg-white transition-colors mt-6 flex items-center justify-center gap-2"
                   >
-                    {t('pilot.form.submit')} <Send size={18} />
+                    SUBMIT APPLICATION <Send size={18} />
                   </button>
                 </form>
               </>
@@ -205,10 +203,10 @@ export default function PilotProgram() {
                   <CheckCircle2 className="text-green-500" size={40} />
                 </div>
                 <h3 className="text-2xl font-black text-white mb-4 tracking-tight uppercase">
-                  {t('pilot.form.successTitle')}
+                  Application Received!
                 </h3>
                 <p className="text-gray-400">
-                  {t('pilot.form.successMessage')}
+                  Thank you for applying to the Real Builder Pilot Program. We will review your application and contact you soon.
                 </p>
               </div>
             )}

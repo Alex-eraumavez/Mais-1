@@ -43,7 +43,7 @@ export default function Map() {
         <Marker key={index} position={loc.position} icon={customIcon}>
           <Popup className="custom-popup">
             <div className="font-bold text-black">{loc.name}</div>
-            <div className="text-sm">{loc.count} Profissionais Certificados</div>
+            <div className="text-sm">{loc.count} Certified Professionals</div>
           </Popup>
         </Marker>
       ))}

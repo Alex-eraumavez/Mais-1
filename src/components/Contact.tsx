@@ -1,9 +1,7 @@
 import { Send, ChevronDown, Upload } from 'lucide-react';
 import { useState, ChangeEvent, useEffect } from 'react';
-import { useTranslation } from 'react-i18next';
 
 export default function Contact() {
-  const { t } = useTranslation();
   const [selectedPlan, setSelectedPlan] = useState('');
   const [selectedVehicle, setSelectedVehicle] = useState('');
   const [fileName, setFileName] = useState('');
@@ -37,18 +35,18 @@ export default function Contact() {
       <div className="max-w-3xl mx-auto px-6 relative z-10">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-black text-white mb-6 tracking-tight uppercase">
-            {t('contact.title')} <span className="text-[#FFB800]">{t('contact.titleAccent')}</span>
+            Ready to start your <span className="text-[#FFB800]">journey?</span>
           </h2>
           <p className="text-gray-400 text-lg leading-relaxed">
-            {t('contact.subtitle')}
+            Have questions about our courses, membership, or vehicle solutions? Our team is here to help you become a Real Builder.
           </p>
         </div>
 
         <div id="contact-form" className="bg-[#111315] rounded-3xl p-8 md:p-12 border border-white/10">
-          <form className="space-y-6" onSubmit={(e) => { e.preventDefault(); alert(t('contact.form.success')); }}>
+          <form className="space-y-6" onSubmit={(e) => { e.preventDefault(); alert('Message sent successfully!'); }}>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <label className="block text-gray-500 text-[10px] font-bold tracking-widest uppercase mb-2">{t('contact.form.firstName')}</label>
+                <label className="block text-gray-500 text-[10px] font-bold tracking-widest uppercase mb-2">First Name</label>
                 <input 
                   type="text" 
                   required
@@ -57,7 +55,7 @@ export default function Contact() {
                 />
               </div>
               <div>
-                <label className="block text-gray-500 text-[10px] font-bold tracking-widest uppercase mb-2">{t('contact.form.lastName')}</label>
+                <label className="block text-gray-500 text-[10px] font-bold tracking-widest uppercase mb-2">Last Name</label>
                 <input 
                   type="text" 
                   required
@@ -68,7 +66,7 @@ export default function Contact() {
             </div>
             
             <div>
-              <label className="block text-gray-500 text-[10px] font-bold tracking-widest uppercase mb-2">{t('contact.form.email')}</label>
+              <label className="block text-gray-500 text-[10px] font-bold tracking-widest uppercase mb-2">Email Address</label>
               <input 
                 type="email" 
                 required
@@ -78,7 +76,7 @@ export default function Contact() {
             </div>
 
             <div>
-              <label className="block text-gray-500 text-[10px] font-bold tracking-widest uppercase mb-2">{t('contact.form.city')}</label>
+              <label className="block text-gray-500 text-[10px] font-bold tracking-widest uppercase mb-2">City</label>
               <input 
                 type="text" 
                 required
@@ -88,7 +86,7 @@ export default function Contact() {
             </div>
 
             <div>
-              <label className="block text-gray-500 text-[10px] font-bold tracking-widest uppercase mb-2">{t('contact.form.interest')}</label>
+              <label className="block text-gray-500 text-[10px] font-bold tracking-widest uppercase mb-2">Select Interest!</label>
               <div className="relative">
                 <select 
                   value={selectedPlan}
@@ -96,10 +94,10 @@ export default function Contact() {
                   required
                   className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#FFB800] transition-colors appearance-none"
                 >
-                  <option value="" disabled className="bg-[#111315] text-gray-400">{t('contact.form.interestPlaceholder')}</option>
-                  <option value="course_vehicle" className="bg-[#111315] text-white">{t('contact.form.interests.course_vehicle')}</option>
-                  <option value="course_only" className="bg-[#111315] text-white">{t('contact.form.interests.course_only')}</option>
-                  <option value="doubts" className="bg-[#111315] text-white">{t('contact.form.interests.doubts')}</option>
+                  <option value="" disabled className="bg-[#111315] text-gray-400">Choose an interest...</option>
+                  <option value="course_vehicle" className="bg-[#111315] text-white">Course + Vehicle & Membership</option>
+                  <option value="course_only" className="bg-[#111315] text-white">Course Only</option>
+                  <option value="doubts" className="bg-[#111315] text-white">Doubts/Information</option>
                 </select>
                 <ChevronDown size={16} className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" />
               </div>
@@ -110,23 +108,23 @@ export default function Contact() {
                 {(selectedPlan === 'course_vehicle' || selectedPlan === 'course_only') && (
                   <>
                     <div>
-                      <label className="block text-gray-500 text-[10px] font-bold tracking-widest uppercase mb-2">{t('contact.form.courseInterest')}</label>
+                      <label className="block text-gray-500 text-[10px] font-bold tracking-widest uppercase mb-2">Course(s) of Interest</label>
                       <div className="relative">
                         <select 
                           required
                           defaultValue=""
                           className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#FFB800] transition-colors appearance-none"
                         >
-                          <option value="" disabled className="bg-[#111315] text-gray-400">{t('contact.form.coursePlaceholder')}</option>
-                          <option value="tiles" className="bg-[#111315] text-white">{t('courses.items.tiles.name')}</option>
-                          <option value="plaster" className="bg-[#111315] text-white">{t('courses.items.plastering.name')}</option>
-                          <option value="cleaning" className="bg-[#111315] text-white">{t('courses.items.cleaning.name')}</option>
-                          <option value="servente" className="bg-[#111315] text-white">{t('courses.items.assistant.name')}</option>
-                          <option value="masonry" className="bg-[#111315] text-white">{t('courses.items.masonry.name')}</option>
-                          <option value="drywall" className="bg-[#111315] text-white">{t('courses.items.drywall.name')}</option>
-                          <option value="framing" className="bg-[#111315] text-white">{t('courses.items.framing.name')}</option>
-                          <option value="steel" className="bg-[#111315] text-white">{t('courses.items.steel.name')}</option>
-                          <option value="logistics" className="bg-[#111315] text-white">{t('courses.items.logistics.name')}</option>
+                          <option value="" disabled className="bg-[#111315] text-gray-400">Select a course...</option>
+                          <option value="tiles" className="bg-[#111315] text-white">Tiles & Tiling</option>
+                          <option value="plaster" className="bg-[#111315] text-white">Plastering / Microcement</option>
+                          <option value="cleaning" className="bg-[#111315] text-white">Professional Cleaning</option>
+                          <option value="servente" className="bg-[#111315] text-white">Construction Assistant</option>
+                          <option value="masonry" className="bg-[#111315] text-white">Masonry / Plastering</option>
+                          <option value="drywall" className="bg-[#111315] text-white">Drywall (Pladur)</option>
+                          <option value="framing" className="bg-[#111315] text-white">Framing</option>
+                          <option value="steel" className="bg-[#111315] text-white">Steel Work</option>
+                          <option value="logistics" className="bg-[#111315] text-white">Stock Management / Logistics</option>
                           <option value="multiple" className="bg-[#111315] text-white">Multiple Courses</option>
                         </select>
                         <ChevronDown size={16} className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" />
@@ -135,7 +133,7 @@ export default function Contact() {
 
                     {selectedPlan === 'course_vehicle' && (
                       <div>
-                        <label className="block text-gray-500 text-[10px] font-bold tracking-widest uppercase mb-2">{t('contact.form.vehicleInterest')}</label>
+                        <label className="block text-gray-500 text-[10px] font-bold tracking-widest uppercase mb-2">Vehicle of Interest</label>
                         <div className="relative">
                           <select 
                             required
@@ -143,11 +141,11 @@ export default function Contact() {
                             onChange={(e) => setSelectedVehicle(e.target.value)}
                             className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#FFB800] transition-colors appearance-none"
                           >
-                            <option value="" disabled className="bg-[#111315] text-gray-400">{t('contact.form.vehiclePlaceholder')}</option>
-                            <option value="mobile_toolbox" className="bg-[#111315] text-white">{t('contact.form.vehicles.mobile_toolbox')}</option>
-                            <option value="electric_3_wheeler" className="bg-[#111315] text-white">{t('contact.form.vehicles.electric_3_wheeler')}</option>
-                            <option value="tool_buggy" className="bg-[#111315] text-white">{t('contact.form.vehicles.tool_buggy')}</option>
-                            <option value="tool_van" className="bg-[#111315] text-white">{t('contact.form.vehicles.tool_van')}</option>
+                            <option value="" disabled className="bg-[#111315] text-gray-400">Select a vehicle...</option>
+                            <option value="mobile_toolbox" className="bg-[#111315] text-white">Mobile Toolbox</option>
+                            <option value="electric_3_wheeler" className="bg-[#111315] text-white">Electric 3-Wheeler</option>
+                            <option value="tool_buggy" className="bg-[#111315] text-white">Tool Buggy / Quad</option>
+                            <option value="tool_van" className="bg-[#111315] text-white">Tool Van</option>
                           </select>
                           <ChevronDown size={16} className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" />
                         </div>
@@ -156,71 +154,71 @@ export default function Contact() {
 
                     <div className="md:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-6 mt-4 pt-6 border-t border-white/5">
                       <div>
-                        <label className="block text-gray-500 text-[10px] font-bold tracking-widest uppercase mb-2">{t('contact.form.readingSkills')}</label>
+                        <label className="block text-gray-500 text-[10px] font-bold tracking-widest uppercase mb-2">Reading Skills</label>
                         <div className="relative">
                           <select required defaultValue="" className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#FFB800] transition-colors appearance-none">
-                            <option value="" disabled className="bg-[#111315] text-gray-400">{t('contact.form.levelPlaceholder')}</option>
-                            <option value="basic" className="bg-[#111315] text-white">{t('contact.form.levels.basic')}</option>
-                            <option value="intermediate" className="bg-[#111315] text-white">{t('contact.form.levels.intermediate')}</option>
-                            <option value="fluent" className="bg-[#111315] text-white">{t('contact.form.levels.fluent')}</option>
+                            <option value="" disabled className="bg-[#111315] text-gray-400">Select level...</option>
+                            <option value="basic" className="bg-[#111315] text-white">Basic</option>
+                            <option value="intermediate" className="bg-[#111315] text-white">Intermediate</option>
+                            <option value="fluent" className="bg-[#111315] text-white">Fluent</option>
                           </select>
                           <ChevronDown size={16} className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" />
                         </div>
                       </div>
 
                       <div>
-                        <label className="block text-gray-500 text-[10px] font-bold tracking-widest uppercase mb-2">{t('contact.form.portugueseLevel')}</label>
+                        <label className="block text-gray-500 text-[10px] font-bold tracking-widest uppercase mb-2">Portuguese Level</label>
                         <div className="relative">
                           <select required defaultValue="" className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#FFB800] transition-colors appearance-none">
-                            <option value="" disabled className="bg-[#111315] text-gray-400">{t('contact.form.levelPlaceholder')}</option>
-                            <option value="basic" className="bg-[#111315] text-white">{t('contact.form.levels.basic')}</option>
-                            <option value="intermediate" className="bg-[#111315] text-white">{t('contact.form.levels.intermediate')}</option>
-                            <option value="fluent" className="bg-[#111315] text-white">{t('contact.form.levels.fluent')}</option>
+                            <option value="" disabled className="bg-[#111315] text-gray-400">Select level...</option>
+                            <option value="basic" className="bg-[#111315] text-white">Basic</option>
+                            <option value="intermediate" className="bg-[#111315] text-white">Intermediate</option>
+                            <option value="fluent" className="bg-[#111315] text-white">Fluent</option>
                           </select>
                           <ChevronDown size={16} className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" />
                         </div>
                       </div>
 
                       <div>
-                        <label className="block text-gray-500 text-[10px] font-bold tracking-widest uppercase mb-2">{t('contact.form.englishLevel')}</label>
+                        <label className="block text-gray-500 text-[10px] font-bold tracking-widest uppercase mb-2">English Level</label>
                         <div className="relative">
                           <select required defaultValue="" className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#FFB800] transition-colors appearance-none">
-                            <option value="" disabled className="bg-[#111315] text-gray-400">{t('contact.form.levelPlaceholder')}</option>
-                            <option value="basic" className="bg-[#111315] text-white">{t('contact.form.levels.basic')}</option>
-                            <option value="intermediate" className="bg-[#111315] text-white">{t('contact.form.levels.intermediate')}</option>
-                            <option value="fluent" className="bg-[#111315] text-white">{t('contact.form.levels.fluent')}</option>
+                            <option value="" disabled className="bg-[#111315] text-gray-400">Select level...</option>
+                            <option value="basic" className="bg-[#111315] text-white">Basic</option>
+                            <option value="intermediate" className="bg-[#111315] text-white">Intermediate</option>
+                            <option value="fluent" className="bg-[#111315] text-white">Fluent</option>
                           </select>
                           <ChevronDown size={16} className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" />
                         </div>
                       </div>
 
                       <div>
-                        <label className="block text-gray-500 text-[10px] font-bold tracking-widest uppercase mb-2">{t('contact.form.digitalSkills')}</label>
+                        <label className="block text-gray-500 text-[10px] font-bold tracking-widest uppercase mb-2">Digital Skills</label>
                         <div className="relative">
                           <select required defaultValue="" className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#FFB800] transition-colors appearance-none">
-                            <option value="" disabled className="bg-[#111315] text-gray-400">{t('contact.form.levelPlaceholder')}</option>
-                            <option value="basic" className="bg-[#111315] text-white">{t('contact.form.levels.basic')}</option>
-                            <option value="intermediate" className="bg-[#111315] text-white">{t('contact.form.levels.intermediate')}</option>
-                            <option value="fluent" className="bg-[#111315] text-white">{t('contact.form.levels.fluent')}</option>
+                            <option value="" disabled className="bg-[#111315] text-gray-400">Select level...</option>
+                            <option value="basic" className="bg-[#111315] text-white">Basic</option>
+                            <option value="intermediate" className="bg-[#111315] text-white">Intermediate</option>
+                            <option value="fluent" className="bg-[#111315] text-white">Fluent</option>
                           </select>
                           <ChevronDown size={16} className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" />
                         </div>
                       </div>
 
                       <div>
-                        <label className="block text-gray-500 text-[10px] font-bold tracking-widest uppercase mb-2">{t('contact.form.experience')}</label>
+                        <label className="block text-gray-500 text-[10px] font-bold tracking-widest uppercase mb-2">1+ Year Construction Experience</label>
                         <div className="relative">
                           <select required defaultValue="" className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#FFB800] transition-colors appearance-none">
-                            <option value="" disabled className="bg-[#111315] text-gray-400">{t('contact.form.experiencePlaceholder')}</option>
-                            <option value="yes" className="bg-[#111315] text-white">{t('contact.form.yes')}</option>
-                            <option value="no" className="bg-[#111315] text-white">{t('contact.form.no')}</option>
+                            <option value="" disabled className="bg-[#111315] text-gray-400">Select...</option>
+                            <option value="yes" className="bg-[#111315] text-white">Yes</option>
+                            <option value="no" className="bg-[#111315] text-white">No</option>
                           </select>
                           <ChevronDown size={16} className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" />
                         </div>
                       </div>
 
                       <div>
-                        <label className="block text-gray-500 text-[10px] font-bold tracking-widest uppercase mb-2">{t('contact.form.uploadDoc')}</label>
+                        <label className="block text-gray-500 text-[10px] font-bold tracking-widest uppercase mb-2">Upload Documentation</label>
                         <div className="relative">
                           <input 
                             type="file" 
@@ -234,7 +232,7 @@ export default function Contact() {
                             className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-gray-400 flex items-center justify-between cursor-pointer hover:border-[#FFB800] transition-colors"
                           >
                             <span className="text-sm truncate pr-2">
-                              {fileName || t('contact.form.uploadPlaceholder')}
+                              {fileName || 'Choose file (PNG, JPG, PDF)'}
                             </span>
                             <Upload size={16} className="shrink-0" />
                           </label>
@@ -246,17 +244,17 @@ export default function Contact() {
 
                 {selectedPlan === 'doubts' && (
                   <div>
-                    <label className="block text-gray-500 text-[10px] font-bold tracking-widest uppercase mb-2">{t('contact.form.about')}</label>
+                    <label className="block text-gray-500 text-[10px] font-bold tracking-widest uppercase mb-2">About</label>
                     <div className="relative">
                       <select 
                         required
                         defaultValue=""
                         className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#FFB800] transition-colors appearance-none"
                       >
-                        <option value="" disabled className="bg-[#111315] text-gray-400">{t('contact.form.topicPlaceholder')}</option>
-                        <option value="general" className="bg-[#111315] text-white">{t('contact.form.topics.general')}</option>
-                        <option value="courses" className="bg-[#111315] text-white">{t('contact.form.topics.courses')}</option>
-                        <option value="vehicles" className="bg-[#111315] text-white">{t('contact.form.topics.vehicles')}</option>
+                        <option value="" disabled className="bg-[#111315] text-gray-400">Select a topic...</option>
+                        <option value="general" className="bg-[#111315] text-white">General</option>
+                        <option value="courses" className="bg-[#111315] text-white">Courses</option>
+                        <option value="vehicles" className="bg-[#111315] text-white">Vehicles</option>
                       </select>
                       <ChevronDown size={16} className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" />
                     </div>
@@ -266,12 +264,12 @@ export default function Contact() {
             )}
 
             <div>
-              <label className="block text-gray-500 text-[10px] font-bold tracking-widest uppercase mb-2">{t('contact.form.message')}</label>
+              <label className="block text-gray-500 text-[10px] font-bold tracking-widest uppercase mb-2">Message</label>
               <textarea 
                 required
                 rows={4}
                 className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#FFB800] transition-colors resize-none"
-                placeholder={t('contact.form.messagePlaceholder')}
+                placeholder="Tell us about your goals..."
               ></textarea>
             </div>
             <button 
@@ -279,7 +277,7 @@ export default function Contact() {
               className="w-full bg-[#FFB800] text-black py-4 rounded-xl font-bold tracking-widest flex items-center justify-center gap-2 hover:bg-[#FFB800]/90 transition-colors"
             >
               <Send size={18} />
-              {t('contact.form.send')}
+              SEND MESSAGE
             </button>
           </form>
         </div>

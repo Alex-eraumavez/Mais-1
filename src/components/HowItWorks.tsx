@@ -1,10 +1,8 @@
 import { UserPlus, BookOpen, Hammer } from 'lucide-react';
 import { motion } from 'motion/react';
-import { useTranslation } from 'react-i18next';
 import CertifiedBadge from './CertifiedBadge';
 
 export default function HowItWorks() {
-  const { t } = useTranslation();
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -31,10 +29,10 @@ export default function HowItWorks() {
           className="text-center mb-24"
         >
           <h2 className="text-4xl md:text-5xl font-black text-white mb-6 tracking-tight">
-            {t('howItWorks.title')} <span className="text-[#FFB800]">{t('howItWorks.titleAccent')}</span>
+            How It <span className="text-[#FFB800]">Works</span>
           </h2>
           <p className="text-gray-400 text-lg">
-            {t('howItWorks.subtitle')}
+            From Base experience to certified professional. Faster than you can imagine.
           </p>
         </motion.div>
 
@@ -65,11 +63,11 @@ export default function HowItWorks() {
                   01
                 </div>
               </div>
-              <h3 className="text-[#FFB800] font-bold text-xl mb-3 transition-colors duration-300">{t('howItWorks.steps.s1_title')}</h3>
+              <h3 className="text-[#FFB800] font-bold text-xl mb-3 transition-colors duration-300">Register</h3>
               <div className="grid grid-rows-[0fr] group-hover:grid-rows-[1fr] transition-[grid-template-rows] duration-300 ease-in-out w-full">
                 <div className="overflow-hidden">
                   <p className="text-gray-400 text-sm text-center px-2 pb-4">
-                    {t('howItWorks.steps.s1_desc')}
+                    Sign up and tell us about your background and goals. We'll match you with the right training path.
                   </p>
                 </div>
               </div>
@@ -85,11 +83,11 @@ export default function HowItWorks() {
                   02
                 </div>
               </div>
-              <h3 className="text-[#FFB800] font-bold text-xl mb-3 transition-colors duration-300">{t('howItWorks.steps.s2_title')}</h3>
+              <h3 className="text-[#FFB800] font-bold text-xl mb-3 transition-colors duration-300">Learn Skills</h3>
               <div className="grid grid-rows-[0fr] group-hover:grid-rows-[1fr] transition-[grid-template-rows] duration-300 ease-in-out w-full">
                 <div className="overflow-hidden">
                   <p className="text-gray-400 text-sm text-center px-2 pb-4">
-                    {t('howItWorks.steps.s2_desc')}
+                    Participate in high-intensity, on-site learning in Portuguese or English. From safety fundamentals to specialized techniques.
                   </p>
                 </div>
               </div>
@@ -105,11 +103,11 @@ export default function HowItWorks() {
                   03
                 </div>
               </div>
-              <h3 className="text-[#FFB800] font-bold text-xl mb-3 transition-colors duration-300">{t('howItWorks.steps.s3_title')}</h3>
+              <h3 className="text-[#FFB800] font-bold text-xl mb-3 transition-colors duration-300">Train On-Site</h3>
               <div className="grid grid-rows-[0fr] group-hover:grid-rows-[1fr] transition-[grid-template-rows] duration-300 ease-in-out w-full">
                 <div className="overflow-hidden">
                   <p className="text-gray-400 text-sm text-center px-2 pb-4">
-                    {t('howItWorks.steps.s3_desc')}
+                    Weekend hands-on training (Fri-Sun) with real tools and experienced professionals.
                   </p>
                 </div>
               </div>
@@ -120,11 +118,11 @@ export default function HowItWorks() {
               <div className="relative mb-6 transition-transform duration-300 group-hover:scale-110">
                 <CertifiedBadge className="w-24 h-24 drop-shadow-[0_0_15px_rgba(255,184,0,0.3)] group-hover:drop-shadow-[0_0_25px_rgba(255,184,0,0.5)] transition-all duration-300" />
               </div>
-              <h3 className="text-[#FFB800] font-bold text-xl uppercase tracking-wider mb-3">{t('howItWorks.steps.s4_title')}</h3>
+              <h3 className="text-[#FFB800] font-bold text-xl uppercase tracking-wider mb-3">CERTIFIED</h3>
               <div className="grid grid-rows-[0fr] group-hover:grid-rows-[1fr] transition-[grid-template-rows] duration-300 ease-in-out w-full">
                 <div className="overflow-hidden">
                   <p className="text-gray-400 text-sm text-center px-2 pb-4">
-                    {t('howItWorks.steps.s4_desc')}
+                    Earn your RB1 Certificate after 1-4 weekends of training. Your first milestone to a professional career!
                   </p>
                 </div>
               </div>
@@ -134,7 +132,7 @@ export default function HowItWorks() {
             <motion.div variants={itemVariants} className="flex flex-col items-center group cursor-pointer">
               <div className="relative mb-6 transition-transform duration-300 group-hover:scale-110">
                 <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-[#FFB800] text-black text-[10px] font-bold px-3 py-1 rounded-full whitespace-nowrap z-20 shadow-[0_0_20px_rgba(255,184,0,0.5)]">
-                  {t('howItWorks.steps.s5_badge')}
+                  MEMBERS ONLY
                 </div>
                 <div className="w-24 h-24 rounded-full border-2 border-[#FFB800] overflow-hidden relative z-10 group-hover:shadow-[0_0_30px_rgba(255,184,0,0.4)] transition-shadow duration-300">
                   <img 
@@ -145,11 +143,11 @@ export default function HowItWorks() {
                   />
                 </div>
               </div>
-              <h3 className="text-[#FFB800] font-bold text-xl uppercase tracking-wider text-center mb-3">{t('howItWorks.steps.s5_title')}</h3>
+              <h3 className="text-[#FFB800] font-bold text-xl uppercase tracking-wider text-center mb-3">GET YOUR VEHICLE</h3>
               <div className="grid grid-rows-[0fr] group-hover:grid-rows-[1fr] transition-[grid-template-rows] duration-300 ease-in-out w-full">
                 <div className="overflow-hidden">
                   <p className="text-gray-400 text-sm text-center px-2 pb-4">
-                    {t('howItWorks.steps.s5_desc')}
+                    Get your fully equipped vehicle to start working as a professional builder.
                   </p>
                 </div>
               </div>

@@ -1,12 +1,10 @@
 import { Info, Globe } from 'lucide-react';
 import { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { motion, AnimatePresence } from 'motion/react';
-import { useTranslation } from 'react-i18next';
+import { motion } from 'motion/react';
 
 export default function Navbar() {
-  const { t, i18n } = useTranslation();
-  const [showLangMenu, setShowLangMenu] = useState(false);
+  const [lang, setLang] = useState('EN');
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -24,16 +22,9 @@ export default function Navbar() {
     }
   };
 
-  const changeLanguage = (lng: string) => {
-    i18n.changeLanguage(lng);
-    setShowLangMenu(false);
+  const toggleLang = () => {
+    setLang(prev => prev === 'EN' ? 'PT' : 'EN');
   };
-
-  const languages = [
-    { code: 'en', label: 'EN' },
-    { code: 'pt', label: 'PT' },
-    { code: 'hi', label: 'HI' }
-  ];
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0a0a0a]/90 backdrop-blur-sm border-b border-white/10">
@@ -48,46 +39,19 @@ export default function Navbar() {
         </Link>
 
         <div className="hidden lg:flex items-center gap-6 text-xs font-semibold tracking-wider text-gray-300">
-          <button onClick={() => scrollTo('about')} className="hover:text-white transition-colors uppercase">{t('nav.about')}</button>
-          <button onClick={() => scrollTo('how-it-works')} className="hover:text-white transition-colors uppercase">{t('nav.howItWorks')}</button>
-          <button onClick={() => scrollTo('pricing')} className="hover:text-white transition-colors uppercase">{t('nav.pricing')}</button>
-          <button onClick={() => scrollTo('courses')} className="hover:text-white transition-colors uppercase">{t('nav.courses')}</button>
-          <button onClick={() => scrollTo('professionals')} className="hover:text-white transition-colors uppercase">PROFESSIONALS</button>
-          <button onClick={() => scrollTo('partners')} className="hover:text-white transition-colors uppercase">PARTNERS</button>
-          <button onClick={() => scrollTo('contact-form')} className="hover:text-white transition-colors uppercase">{t('nav.contact')}</button>
-          <Link to="/faq" className="hover:text-white transition-colors uppercase">{t('nav.faq')}</Link>
+          <button onClick={() => scrollTo('about')} className="hover:text-white transition-colors">ABOUT</button>
+          <button onClick={() => scrollTo('how-it-works')} className="hover:text-white transition-colors">HOW IT WORKS</button>
+          <button onClick={() => scrollTo('pricing')} className="hover:text-white transition-colors">PRICING</button>
+          <button onClick={() => scrollTo('courses')} className="hover:text-white transition-colors">COURSES</button>
+          <button onClick={() => scrollTo('professionals')} className="hover:text-white transition-colors">PROFESSIONALS</button>
+          <button onClick={() => scrollTo('partners')} className="hover:text-white transition-colors">PARTNERS</button>
+          <button onClick={() => scrollTo('contact-form')} className="hover:text-white transition-colors">CONTACT</button>
         </div>
 
         <div className="flex items-center gap-4 md:gap-6">
-          <div className="relative">
-            <button 
-              onClick={() => setShowLangMenu(!showLangMenu)}
-              className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors text-xs font-semibold"
-            >
-              <Globe size={16} />
-              <span className="hidden sm:inline uppercase">{i18n.language.split('-')[0]}</span>
-            </button>
-
-            <AnimatePresence>
-              {showLangMenu && (
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 10 }}
-                  className="absolute top-full right-0 mt-2 bg-[#111315] border border-white/10 rounded-lg overflow-hidden shadow-xl min-w-[80px]"
-                >
-                  {languages.map((lang) => (
-                    <button
-                      key={lang.code}
-                      onClick={() => changeLanguage(lang.code)}
-                      className={`w-full px-4 py-2 text-left text-xs font-bold hover:bg-white/5 transition-colors ${i18n.language.startsWith(lang.code) ? 'text-[#FFB800]' : 'text-gray-300'}`}
-                    >
-                      {lang.label}
-                    </button>
-                  ))}
-                </motion.div>
-              )}
-            </AnimatePresence>
+          <div className="flex items-center gap-2 text-gray-300 transition-colors text-xs font-semibold">
+            <Globe size={16} />
+            <span className="hidden sm:inline">EN</span>
           </div>
           
           <button 

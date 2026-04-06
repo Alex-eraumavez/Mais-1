@@ -26,7 +26,7 @@ export default function CertifiedBadge({ className = "" }: { className?: string 
         
         {/* Text */}
         <text fontFamily="sans-serif" fontSize="7" fontWeight="bold" fill="#78350F" letterSpacing="1">
-          <textPath href="#topCurve" startOffset="50%" textAnchor="middle">- CERTIFICADO -</textPath>
+          <textPath href="#topCurve" startOffset="50%" textAnchor="middle">- CERTIFIED -</textPath>
         </text>
         <text fontFamily="sans-serif" fontSize="7" fontWeight="bold" fill="#78350F" letterSpacing="1">
           <textPath href="#bottomCurve" startOffset="50%" textAnchor="middle">REAL BUILDER</textPath>

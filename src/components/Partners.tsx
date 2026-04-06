@@ -1,20 +1,15 @@
 import { Building2, Wrench, HardHat, Truck, ShieldCheck, Zap } from 'lucide-react';
-import { useTranslation, Trans } from 'react-i18next';
 
 export default function Partners() {
-  const { t } = useTranslation();
-
   return (
     <section id="partners" className="py-32 bg-[#15181b] relative border-t border-white/5">
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-black text-white mb-6 tracking-tight">
-            <Trans i18nKey="partners.title">
-              Trusted <span className="text-[#FFB800]">Partners</span>
-            </Trans>
+            Trusted <span className="text-[#FFB800]">Partners</span>
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            {t('partners.subtitle')}
+            We collaborate with industry leaders to provide our students with the best tools, materials, and job opportunities.
           </p>
         </div>
 
@@ -24,11 +19,7 @@ export default function Partners() {
             <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-gray-400 group-hover:text-[#FFB800] group-hover:bg-[#FFB800]/10 transition-colors">
               <Building2 size={24} />
             </div>
-            <span className="text-gray-300 text-sm font-bold text-center">
-              <Trans i18nKey="partners.categories.construction">
-                Construction<br/>Firms
-              </Trans>
-            </span>
+            <span className="text-gray-300 text-sm font-bold text-center">Construction<br/>Firms</span>
           </div>
 
           {/* Partner 2 */}
@@ -36,11 +27,7 @@ export default function Partners() {
             <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-gray-400 group-hover:text-[#FFB800] group-hover:bg-[#FFB800]/10 transition-colors">
               <Wrench size={24} />
             </div>
-            <span className="text-gray-300 text-sm font-bold text-center">
-              <Trans i18nKey="partners.categories.tools">
-                Tool<br/>Manufacturers
-              </Trans>
-            </span>
+            <span className="text-gray-300 text-sm font-bold text-center">Tool<br/>Manufacturers</span>
           </div>
 
           {/* Partner 3 */}
@@ -48,11 +35,7 @@ export default function Partners() {
             <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-gray-400 group-hover:text-[#FFB800] group-hover:bg-[#FFB800]/10 transition-colors">
               <HardHat size={24} />
             </div>
-            <span className="text-gray-300 text-sm font-bold text-center">
-              <Trans i18nKey="partners.categories.safety">
-                Safety<br/>Equipment
-              </Trans>
-            </span>
+            <span className="text-gray-300 text-sm font-bold text-center">Safety<br/>Equipment</span>
           </div>
 
           {/* Partner 4 */}
@@ -60,11 +43,7 @@ export default function Partners() {
             <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-gray-400 group-hover:text-[#FFB800] group-hover:bg-[#FFB800]/10 transition-colors">
               <Truck size={24} />
             </div>
-            <span className="text-gray-300 text-sm font-bold text-center">
-              <Trans i18nKey="partners.categories.materials">
-                Material<br/>Suppliers
-              </Trans>
-            </span>
+            <span className="text-gray-300 text-sm font-bold text-center">Material<br/>Suppliers</span>
           </div>
 
           {/* Partner 5 */}
@@ -72,11 +51,7 @@ export default function Partners() {
             <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-gray-400 group-hover:text-[#FFB800] group-hover:bg-[#FFB800]/10 transition-colors">
               <ShieldCheck size={24} />
             </div>
-            <span className="text-gray-300 text-sm font-bold text-center">
-              <Trans i18nKey="partners.categories.insurance">
-                Insurance<br/>Providers
-              </Trans>
-            </span>
+            <span className="text-gray-300 text-sm font-bold text-center">Insurance<br/>Providers</span>
           </div>
 
           {/* Partner 6 */}
@@ -84,11 +59,7 @@ export default function Partners() {
             <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-gray-400 group-hover:text-[#FFB800] group-hover:bg-[#FFB800]/10 transition-colors">
               <Zap size={24} />
             </div>
-            <span className="text-gray-300 text-sm font-bold text-center">
-              <Trans i18nKey="partners.categories.energy">
-                Energy<br/>Solutions
-              </Trans>
-            </span>
+            <span className="text-gray-300 text-sm font-bold text-center">Energy<br/>Solutions</span>
           </div>
         </div>
       </div>

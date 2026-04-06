@@ -1,11 +1,9 @@
 import { Check, X, Globe, X as CloseIcon, CheckCircle2 } from 'lucide-react';
 import { motion, useInView, AnimatePresence } from 'motion/react';
 import { useState, useRef, useEffect } from 'react';
-import { useTranslation, Trans } from 'react-i18next';
 import DiscountFormModal from './DiscountFormModal';
 
 export default function Pricing() {
-  const { t } = useTranslation();
   const [showPromo, setShowPromo] = useState(false);
   const [showDiscountForm, setShowDiscountForm] = useState(false);
   const [hasDismissedPromo, setHasDismissedPromo] = useState(false);
@@ -55,10 +53,10 @@ export default function Pricing() {
             className="text-center mb-16"
           >
             <h2 className="text-4xl md:text-5xl font-black text-white mb-6 tracking-tight uppercase">
-              {t('pricing.title')}
+              THE REAL BUILDER SYSTEM
             </h2>
             <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-              {t('pricing.subtitle')}
+              Get access to our fully equipped vehicles, affordable rental prices, and exclusive discounts on equipment & materials.
             </p>
           </motion.div>
 
@@ -69,11 +67,7 @@ export default function Pricing() {
             transition={{ delay: 0.2 }}
             className="text-center mb-12"
           >
-            <h3 className="text-2xl font-bold text-white">
-              <Trans i18nKey="pricing.choosePath">
-                Choose Your <span className="text-[#FFB800]">Path</span>
-              </Trans>
-            </h3>
+            <h3 className="text-2xl font-bold text-white">Choose Your <span className="text-[#FFB800]">Path</span></h3>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
@@ -87,67 +81,67 @@ export default function Pricing() {
             >
               <div className="absolute -top-3 left-6 bg-[#FFB800] text-black text-xs font-bold px-3 py-1 rounded-md flex items-center gap-1">
                 <span className="w-3 h-3 rounded-full border border-black flex items-center justify-center text-[8px]">M</span>
-                {t('pricing.plans.courseVehicle.badge')}
+                Best Value
               </div>
               
-              <h4 className="text-xl font-bold text-white mb-6">{t('pricing.plans.courseVehicle.name')}</h4>
+              <h4 className="text-xl font-bold text-white mb-6">Course + Vehicle & Membership</h4>
               
               <div className="flex items-baseline gap-2 mb-2">
-                <span className="text-gray-400 text-sm">{t('pricing.plans.courseVehicle.from')}</span>
+                <span className="text-gray-400 text-sm">from</span>
                 <span className="text-[#FFB800] text-4xl font-bold">€249</span>
                 <span className="text-gray-400">-</span>
                 <span className="text-[#FFB800] text-4xl font-bold">€589</span>
-                <span className="text-gray-400 text-sm">{t('pricing.plans.courseVehicle.perMonth')}</span>
+                <span className="text-gray-400 text-sm">/ month</span>
               </div>
-              <p className="text-gray-500 text-xs mb-8">{t('pricing.plans.courseVehicle.priceNote')}</p>
+              <p className="text-gray-500 text-xs mb-8">Price depends on mobility solution choice</p>
 
               <ul className="space-y-4 mb-10 flex-grow">
                 <li className="flex items-center gap-3 text-white text-sm font-semibold">
-                  <Check size={16} className="text-[#22c55e]" /> {t('pricing.plans.courseVehicle.features.fullCourse')}
+                  <Check size={16} className="text-[#22c55e]" /> FULL COURSE
                 </li>
                 <li className="flex items-center gap-3 text-white text-sm font-semibold">
-                  <Check size={16} className="text-[#22c55e]" /> {t('pricing.plans.courseVehicle.features.certification')}
+                  <Check size={16} className="text-[#22c55e]" /> CERTIFICATION
                 </li>
                 <li className="flex items-center gap-3 text-white text-sm font-semibold">
-                  <Check size={16} className="text-[#22c55e]" /> {t('pricing.plans.courseVehicle.features.vehicle')}
+                  <Check size={16} className="text-[#22c55e]" /> VEHICLE
                 </li>
                 <li className="flex items-center gap-3 text-white text-sm font-semibold relative group cursor-help">
-                  <Check size={16} className="text-[#22c55e]" /> <u className="decoration-[#FFB800] underline-offset-4">{t('pricing.plans.courseVehicle.features.membership')}</u>
+                  <Check size={16} className="text-[#22c55e]" /> <u className="decoration-[#FFB800] underline-offset-4">RB MEMBERSHIP</u>
                   <div className="absolute bottom-full left-0 mb-2 w-56 bg-[#1a1d21] border border-white/10 rounded-lg p-3 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10 shadow-xl">
                     <div className="text-xs font-normal text-gray-300 whitespace-pre-line leading-relaxed">
-                      {t('pricing.plans.courseVehicle.features.membershipDetails')}
+                      RB Section ID{"\n"}Tablet with RB App{"\n"}Online Shop Discount{"\n"}Follow Up training 3x/year{"\n"}Visible and Promoted on Website{"\n"}Guide Maintenance
                     </div>
                   </div>
                 </li>
                 <li className="flex items-center gap-3 text-white text-sm font-semibold relative group cursor-help">
-                  <Check size={16} className="text-[#22c55e]" /> <u className="decoration-[#FFB800] underline-offset-4">{t('pricing.plans.courseVehicle.features.workwear')}</u>
+                  <Check size={16} className="text-[#22c55e]" /> <u className="decoration-[#FFB800] underline-offset-4">WORKWEAR</u>
                   <div className="absolute bottom-full left-0 mb-2 w-48 bg-[#1a1d21] border border-white/10 rounded-lg p-3 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10 shadow-xl">
                     <div className="text-xs font-normal text-gray-300 whitespace-pre-line leading-relaxed">
-                      {t('pricing.plans.courseVehicle.features.workwearDetails')}
+                      Pants{"\n"}Helmet{"\n"}Shoes{"\n"}Shirt{"\n"}Vest
                     </div>
                   </div>
                 </li>
                 <li className="flex items-center gap-3 text-white text-sm font-semibold relative group cursor-help">
-                  <Check size={16} className="text-[#22c55e]" /> <u className="decoration-[#FFB800] underline-offset-4">{t('pricing.plans.courseVehicle.features.software')}</u>
+                  <Check size={16} className="text-[#22c55e]" /> <u className="decoration-[#FFB800] underline-offset-4">PM SOFTWARE</u>
                   <div className="absolute bottom-full left-0 mb-2 w-48 bg-[#1a1d21] border border-white/10 rounded-lg p-3 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10 shadow-xl">
                     <div className="text-xs font-normal text-gray-300 whitespace-pre-line leading-relaxed">
-                      {t('pricing.plans.courseVehicle.features.softwareDetails')}
+                      Quotes{"\n"}Invoice{"\n"}Project Management{"\n"}Payments{"\n"}Time Tracking{"\n"}Tool Check Up
                     </div>
                   </div>
                 </li>
                 <li className="flex items-center gap-3 text-white text-sm font-semibold">
-                  <Check size={16} className="text-[#22c55e]" /> {t('pricing.plans.courseVehicle.features.workshop')}
+                  <Check size={16} className="text-[#22c55e]" /> MOBILE WORKSHOP ACCESS
                 </li>
                 <li className="flex items-center gap-3 text-white text-sm font-semibold relative group cursor-help">
-                  <Check size={16} className="text-[#22c55e]" /> <u className="decoration-[#FFB800] underline-offset-4">{t('pricing.plans.courseVehicle.features.jobSupport')}</u>
+                  <Check size={16} className="text-[#22c55e]" /> <u className="decoration-[#FFB800] underline-offset-4">JOB PLACEMENT SUPPORT</u>
                   <div className="absolute bottom-full left-0 mb-2 w-48 bg-[#1a1d21] border border-white/10 rounded-lg p-3 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10 shadow-xl">
                     <div className="text-xs font-normal text-gray-300 whitespace-pre-line leading-relaxed">
-                      {t('pricing.plans.courseVehicle.features.jobSupportDetails')}
+                      Work in the World{"\n\n"}Internal{"\n"}National{"\n"}International
                     </div>
                   </div>
                 </li>
                 <li className="flex items-center gap-3 text-white text-sm font-semibold">
-                  <Globe size={16} className="text-[#FFB800]" /> {t('pricing.plans.courseVehicle.features.marketing')}
+                  <Globe size={16} className="text-[#FFB800]" /> GLOBAL MARKETING SUPPORT
                 </li>
               </ul>
 
@@ -155,7 +149,7 @@ export default function Pricing() {
                 onClick={() => handleSelectPlan('course_vehicle')}
                 className="w-full bg-[#FFB800] text-black py-4 rounded-xl font-bold tracking-widest hover:bg-[#FFB800]/90 transition-colors"
               >
-                {t('pricing.selectPlan')}
+                SELECT PLAN
               </button>
             </motion.div>
 
@@ -169,32 +163,32 @@ export default function Pricing() {
             >
               <div className="absolute -top-3 left-6 bg-gray-700 text-white text-xs font-bold px-3 py-1 rounded-md flex items-center gap-1">
                  <span className="w-3 h-3 rounded-full border border-white flex items-center justify-center text-[8px]">I</span>
-                {t('pricing.plans.courseOnly.badge')}
+                Independent
               </div>
               
-              <h4 className="text-xl font-bold text-white mb-6">{t('pricing.plans.courseOnly.name')}</h4>
+              <h4 className="text-xl font-bold text-white mb-6">Course Only</h4>
               
               <div className="flex items-baseline gap-2 mb-2">
                 <span className="text-[#FFB800] text-4xl font-bold">€899</span>
-                <span className="text-gray-400 text-sm">{t('pricing.plans.courseOnly.oneTime')}</span>
+                <span className="text-gray-400 text-sm">one-time</span>
               </div>
-              <p className="text-gray-400 text-xs mb-8">{t('pricing.plans.courseOnly.priceNote')}</p>
+              <p className="text-gray-400 text-xs mb-8">Full certification without membership</p>
 
               <ul className="space-y-4 mb-10 flex-grow">
                 <li className="flex items-center gap-3 text-white text-sm font-semibold">
-                  <Check size={16} className="text-[#22c55e]" /> {t('pricing.plans.courseOnly.features.fullCourse')}
+                  <Check size={16} className="text-[#22c55e]" /> FULL COURSE
                 </li>
                 <li className="flex items-center gap-3 text-white text-sm font-semibold">
-                  <Check size={16} className="text-[#22c55e]" /> {t('pricing.plans.courseOnly.features.certification')}
+                  <Check size={16} className="text-[#22c55e]" /> CERTIFICATION
                 </li>
                 <li className="flex items-center gap-3 text-gray-500 text-sm">
-                  <X size={16} /> {t('pricing.plans.courseOnly.features.noVehicle')}
+                  <X size={16} /> No vehicle included
                 </li>
                 <li className="flex items-center gap-3 text-gray-500 text-sm">
-                  <span className="w-4 h-4 rounded-full border border-gray-500 flex items-center justify-center text-[8px]">M</span> {t('pricing.plans.courseOnly.features.noMembership')}
+                  <span className="w-4 h-4 rounded-full border border-gray-500 flex items-center justify-center text-[8px]">M</span> No membership benefits
                 </li>
                 <li className="flex items-center gap-3 text-gray-500 text-sm">
-                  <X size={16} /> {t('pricing.plans.courseOnly.features.noWorkshop')}
+                  <X size={16} /> No mobile workshop access
                 </li>
               </ul>
 
@@ -202,7 +196,7 @@ export default function Pricing() {
                 onClick={() => handleSelectPlan('course_only')}
                 className="w-full bg-white/5 border border-white/10 text-white py-4 rounded-xl font-bold tracking-widest hover:bg-white/10 transition-colors"
               >
-                {t('pricing.selectPlan')}
+                SELECT PLAN
               </button>
             </motion.div>
           </div>
@@ -214,7 +208,7 @@ export default function Pricing() {
             transition={{ delay: 0.8 }}
             className="text-center mt-8 text-gray-500 text-sm"
           >
-            {t('pricing.continueNote')}
+            Please select a path above to continue
           </motion.div>
         </div>
       </div>
@@ -245,25 +239,21 @@ export default function Pricing() {
               
               <div className="relative z-10">
                 <div className="inline-block bg-[#FFB800]/10 border border-[#FFB800]/30 text-[#FFB800] text-xs font-black tracking-widest uppercase px-3 py-1 rounded-full mb-6">
-                  {t('pricing.promo.badge')}
+                  Special Offer
                 </div>
                 
                 <h4 className="text-white font-black text-3xl md:text-4xl mb-4 tracking-tight uppercase">
-                  <Trans i18nKey="pricing.promo.title">
-                    Get <span className="text-[#FFB800]">100% OFF</span>
-                  </Trans>
+                  Get <span className="text-[#FFB800]">100% OFF</span>
                 </h4>
                 
                 <p className="text-gray-300 text-base mb-6 leading-relaxed">
-                  <Trans i18nKey="pricing.promo.description">
-                    We always have new offers! Claim a massive 100% discount on <strong>any course</strong> of your interest. 
-                  </Trans>
+                  We always have new offers! Claim a massive 100% discount on <strong>any course</strong> of your interest. 
                 </p>
 
                 <div className="bg-red-500/10 border border-red-500/20 rounded-lg py-3 px-4 mb-8">
                   <span className="text-red-500 text-sm uppercase tracking-widest font-bold flex items-center justify-center gap-2">
                     <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
-                    {t('pricing.promo.spots')}
+                    20 get 50% off - 2 get 100% off
                   </span>
                 </div>
                 
@@ -275,7 +265,7 @@ export default function Pricing() {
                   }}
                   className="w-full bg-[#FFB800] text-black font-black py-4 rounded-xl text-lg tracking-widest hover:bg-white transition-colors shadow-[0_0_20px_rgba(255,184,0,0.3)] hover:shadow-[0_0_30px_rgba(255,255,255,0.4)]"
                 >
-                  {t('pricing.promo.button')}
+                  CLAIM YOUR SPOT
                 </button>
               </div>
             </motion.div>
@@ -335,10 +325,10 @@ export default function Pricing() {
             >
               <div className="flex flex-col items-start text-left relative z-10">
                 <span className="text-[10px] font-bold text-gray-500 uppercase tracking-[0.2em] mb-1">
-                  {isSubmitted ? t('pricing.promo.minimized.secured') : t('pricing.promo.minimized.action')}
+                  {isSubmitted ? 'Status: Secured' : 'Action Required'}
                 </span>
                 <span className={`text-sm font-black tracking-widest uppercase ${isSubmitted ? 'text-green-500' : 'text-[#FFB800]'}`}>
-                  {isSubmitted ? t('pricing.promo.minimized.applied') : t('pricing.promo.minimized.claim')}
+                  {isSubmitted ? 'Discount Applied' : 'Claim 100% Off'}
                 </span>
               </div>
             </button>

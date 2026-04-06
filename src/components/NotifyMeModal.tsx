@@ -1,7 +1,18 @@
 import { X, Bell } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import React, { useState } from 'react';
-import { useTranslation } from 'react-i18next';
+
+const coursesList = [
+  { id: 'tiles', name: 'Tiles & Tiling' },
+  { id: 'plastering', name: 'Plastering / Microcement' },
+  { id: 'cleaning', name: 'Professional Cleaning' },
+  { id: 'assistant', name: 'Construction Assistant' },
+  { id: 'masonry', name: 'Masonry / Plastering' },
+  { id: 'drywall', name: 'Drywall (Pladur)' },
+  { id: 'framing', name: 'Framing' },
+  { id: 'steel', name: 'Steel Work' },
+  { id: 'logistics', name: 'Stock Management / Logistics' },
+];
 
 interface NotifyMeModalProps {
   isOpen: boolean;
@@ -9,21 +20,8 @@ interface NotifyMeModalProps {
 }
 
 export default function NotifyMeModal({ isOpen, onClose }: NotifyMeModalProps) {
-  const { t } = useTranslation();
   const [selectedCourses, setSelectedCourses] = useState<string[]>([]);
   const [isSubmitted, setIsSubmitted] = useState(false);
-
-  const coursesList = [
-    { id: 'tiles', name: t('popups.notifyMe.courses.tiles') },
-    { id: 'plastering', name: t('popups.notifyMe.courses.plastering') },
-    { id: 'cleaning', name: t('popups.notifyMe.courses.cleaning') },
-    { id: 'assistant', name: t('popups.notifyMe.courses.assistant') },
-    { id: 'masonry', name: t('popups.notifyMe.courses.masonry') },
-    { id: 'drywall', name: t('popups.notifyMe.courses.drywall') },
-    { id: 'framing', name: t('popups.notifyMe.courses.framing') },
-    { id: 'steel', name: t('popups.notifyMe.courses.steel') },
-    { id: 'logistics', name: t('popups.notifyMe.courses.logistics') },
-  ];
 
   const handleCourseToggle = (courseId: string) => {
     setSelectedCourses(prev => {
@@ -59,7 +57,7 @@ export default function NotifyMeModal({ isOpen, onClose }: NotifyMeModalProps) {
       }, 3000);
     } catch (error) {
       console.error('Error submitting form:', error);
-      alert(t('popups.notifyMe.error'));
+      alert('There was an error submitting the form. Please try again.');
     }
   };
 
@@ -91,17 +89,17 @@ export default function NotifyMeModal({ isOpen, onClose }: NotifyMeModalProps) {
                     <Bell className="text-[#FFB800]" size={32} />
                   </motion.div>
                   <h3 className="text-2xl font-black text-white mb-2 tracking-tight uppercase">
-                    {t('popups.notifyMe.title')}
+                    Get Notified
                   </h3>
                   <p className="text-gray-400 text-sm">
-                    {t('popups.notifyMe.subtitle')}
+                    Leave your details below and we'll notify you as soon as new courses open.
                   </p>
                 </div>
 
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-gray-500 text-[10px] font-bold tracking-widest uppercase mb-1">{t('popups.notifyMe.firstName')}</label>
+                      <label className="block text-gray-500 text-[10px] font-bold tracking-widest uppercase mb-1">First Name</label>
                       <input 
                         type="text" 
                         name="firstName"
@@ -111,7 +109,7 @@ export default function NotifyMeModal({ isOpen, onClose }: NotifyMeModalProps) {
                       />
                     </div>
                     <div>
-                      <label className="block text-gray-500 text-[10px] font-bold tracking-widest uppercase mb-1">{t('popups.notifyMe.lastName')}</label>
+                      <label className="block text-gray-500 text-[10px] font-bold tracking-widest uppercase mb-1">Last Name</label>
                       <input 
                         type="text" 
                         name="lastName"
@@ -124,7 +122,7 @@ export default function NotifyMeModal({ isOpen, onClose }: NotifyMeModalProps) {
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-gray-500 text-[10px] font-bold tracking-widest uppercase mb-1">{t('popups.notifyMe.phone')}</label>
+                      <label className="block text-gray-500 text-[10px] font-bold tracking-widest uppercase mb-1">Phone Number</label>
                       <input 
                         type="tel" 
                         name="phone"
@@ -134,7 +132,7 @@ export default function NotifyMeModal({ isOpen, onClose }: NotifyMeModalProps) {
                       />
                     </div>
                     <div>
-                      <label className="block text-gray-500 text-[10px] font-bold tracking-widest uppercase mb-1">{t('popups.notifyMe.city')}</label>
+                      <label className="block text-gray-500 text-[10px] font-bold tracking-widest uppercase mb-1">City</label>
                       <input 
                         type="text" 
                         name="city"
@@ -146,7 +144,7 @@ export default function NotifyMeModal({ isOpen, onClose }: NotifyMeModalProps) {
                   </div>
 
                   <div>
-                    <label className="block text-gray-500 text-[10px] font-bold tracking-widest uppercase mb-1">{t('popups.notifyMe.email')}</label>
+                    <label className="block text-gray-500 text-[10px] font-bold tracking-widest uppercase mb-1">Email Address</label>
                     <input 
                       type="email" 
                       name="email"
@@ -157,24 +155,24 @@ export default function NotifyMeModal({ isOpen, onClose }: NotifyMeModalProps) {
                   </div>
 
                   <div>
-                    <label className="block text-gray-500 text-[10px] font-bold tracking-widest uppercase mb-1">{t('popups.notifyMe.experience')}</label>
+                    <label className="block text-gray-500 text-[10px] font-bold tracking-widest uppercase mb-1">Years of Experience</label>
                     <select 
                       name="experience"
                       required
                       defaultValue=""
                       className="w-full bg-[#1a1d21] border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#FFB800] transition-colors text-sm appearance-none"
                     >
-                      <option value="" disabled>{t('popups.notifyMe.selectExperience')}</option>
-                      <option value="less_than_1">{t('popups.notifyMe.exp_less_than_1')}</option>
-                      <option value="1_to_2">{t('popups.notifyMe.exp_1_to_2')}</option>
-                      <option value="3_to_5">{t('popups.notifyMe.exp_3_to_5')}</option>
-                      <option value="5_plus">{t('popups.notifyMe.exp_5_plus')}</option>
+                      <option value="" disabled>Select your experience</option>
+                      <option value="less_than_1">Less than 1 year</option>
+                      <option value="1_to_2">1-2 years</option>
+                      <option value="3_to_5">3-5 years</option>
+                      <option value="5_plus">5+ years</option>
                     </select>
                   </div>
 
                   <div>
                     <label className="block text-gray-500 text-[10px] font-bold tracking-widest uppercase mb-2">
-                      {t('popups.notifyMe.coursesInterest')}
+                      Courses of Interest (Max 2)
                     </label>
                     <div className="flex flex-wrap gap-2">
                       {coursesList.map(course => {
@@ -223,7 +221,7 @@ export default function NotifyMeModal({ isOpen, onClose }: NotifyMeModalProps) {
                     whileTap={{ scale: 0.98 }}
                     className="w-full bg-[#FFB800] text-black font-black py-4 rounded-xl tracking-widest hover:bg-[#FFB800]/90 transition-colors mt-6"
                   >
-                    {t('popups.notifyMe.submit')}
+                    NOTIFY ME
                   </motion.button>
                 </form>
               </>
@@ -233,10 +231,10 @@ export default function NotifyMeModal({ isOpen, onClose }: NotifyMeModalProps) {
                   <Bell className="text-green-500" size={40} />
                 </div>
                 <h3 className="text-2xl font-black text-white mb-4 tracking-tight uppercase">
-                  {t('popups.notifyMe.successTitle')}
+                  You're on the list!
                 </h3>
                 <p className="text-gray-400">
-                  {t('popups.notifyMe.successMessage')}
+                  We'll notify you as soon as new spots open for your selected courses.
                 </p>
               </div>
             )}

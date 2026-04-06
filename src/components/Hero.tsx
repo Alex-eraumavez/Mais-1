@@ -1,9 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
-import { useTranslation } from 'react-i18next';
 
 export default function Hero() {
-  const { t } = useTranslation();
   const calculateTimeLeft = () => {
     // Target date: April 24, 2026, 18:00:00 Lisbon Time (UTC+1)
     const targetDate = new Date('2026-04-24T18:00:00+01:00');
@@ -61,13 +59,16 @@ export default function Hero() {
         >
           <h1 className="text-5xl md:text-7xl font-black text-white leading-none mb-4 tracking-tight flex flex-col items-start">
             <div className="relative inline-flex whitespace-nowrap">
-              <span>{t('hero.title1')}</span>
+              <span>THE REAL</span>
             </div>
-            <span className="text-[#FFB800] mt-2">{t('hero.title2')}</span>
+            <span className="text-[#FFB800] mt-2">BUILDER</span>
           </h1>
 
-          <p className="text-gray-300 text-base md:text-lg mb-8 max-w-xl leading-relaxed whitespace-pre-line">
-            {t('hero.description')}
+          <p className="text-gray-300 text-base md:text-lg mb-8 max-w-xl leading-relaxed">
+            For individuals who want real skills.<br />
+            For companies who need reliable workers.<br />
+            <br />
+            REAL BUILDER transforms beginners into skilled, certified builders - fully equipped, job-ready to raise the standard from day one.
           </p>
 
           <div className="flex flex-wrap gap-4">
@@ -90,7 +91,7 @@ export default function Hero() {
                 }}
                 className="absolute top-0 bottom-0 w-1/2 bg-gradient-to-r from-transparent via-white/10 to-transparent -skew-x-12 pointer-events-none"
               />
-              <span className="relative z-10">{t('hero.explore')}</span>
+              <span className="relative z-10">EXPLORE COURSES</span>
             </motion.button>
           </div>
         </motion.div>
@@ -103,30 +104,30 @@ export default function Hero() {
             <div className="w-2 h-2 rounded-full bg-[#FFB800] animate-pulse" />
             <span className="text-white font-medium tracking-wide text-sm uppercase">
               {timeLeft.days === 0 && timeLeft.hours === 0 && timeLeft.minutes === 0 && timeLeft.seconds === 0 
-                ? t('hero.regOpen') 
-                : t('hero.regOpensIn')}
+                ? "Registrations Are Open" 
+                : "Registration Opens In"}
             </span>
           </div>
           
           <div className="flex items-center gap-4 md:gap-6">
             <div className="flex flex-col items-center">
               <span className="text-[#FFB800] text-2xl md:text-3xl font-black">{pad(timeLeft.days)}</span>
-              <span className="text-gray-400 text-[10px] tracking-widest">{t('hero.days')}</span>
+              <span className="text-gray-400 text-[10px] tracking-widest">DAYS</span>
             </div>
             <span className="text-white/20 text-2xl font-light pb-3">:</span>
             <div className="flex flex-col items-center">
               <span className="text-[#FFB800] text-2xl md:text-3xl font-black">{pad(timeLeft.hours)}</span>
-              <span className="text-gray-400 text-[10px] tracking-widest">{t('hero.hours')}</span>
+              <span className="text-gray-400 text-[10px] tracking-widest">HOURS</span>
             </div>
             <span className="text-white/20 text-2xl font-light pb-3">:</span>
             <div className="flex flex-col items-center">
               <span className="text-[#FFB800] text-2xl md:text-3xl font-black">{pad(timeLeft.minutes)}</span>
-              <span className="text-gray-400 text-[10px] tracking-widest">{t('hero.mins')}</span>
+              <span className="text-gray-400 text-[10px] tracking-widest">MINS</span>
             </div>
             <span className="text-white/20 text-2xl font-light pb-3">:</span>
             <div className="flex flex-col items-center">
               <span className="text-[#FFB800] text-2xl md:text-3xl font-black">{pad(timeLeft.seconds)}</span>
-              <span className="text-gray-400 text-[10px] tracking-widest">{t('hero.secs')}</span>
+              <span className="text-gray-400 text-[10px] tracking-widest">SECS</span>
             </div>
           </div>
         </div>
